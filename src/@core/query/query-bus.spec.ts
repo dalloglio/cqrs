@@ -29,4 +29,19 @@ describe("QueryBus", () => {
   it("should throw an error if no handler is found", () => {
     expect(() => queryBus.execute(query)).toThrow("Handler not found");
   });
+
+  it("should overwrite handler if registering the same query twice", async () => {
+    queryBus.register(query, queryHandler);
+    const newHandler = { execute: jest.fn() };
+    queryBus.register(query, newHandler);
+    await queryBus.execute(query);
+    expect(newHandler.execute).toHaveBeenCalled();
+    expect(queryHandler.execute).not.toHaveBeenCalled();
+  });
+
+  it("should propagate error if handler throws during execution", async () => {
+    const errorHandler: IQueryHandler = { execute: jest.fn(() => { throw new Error("fail"); }) };
+    queryBus.register(query, errorHandler);
+    await expect(() => queryBus.execute(query)).toThrow("fail");
+  });
 });

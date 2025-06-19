@@ -6,7 +6,7 @@ describe("CreateAccountHandler", () => {
   let createAccountHandler: ICommandHandler;
 
   beforeEach(() => {
-    command = { email: "email", password: "password" };
+    command = { email: "email", password: "Str0ngP@ssw0rd!" };
     createAccountHandler = new CreateAccountHandler();
   });
 

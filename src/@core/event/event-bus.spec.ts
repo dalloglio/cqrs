@@ -42,4 +42,22 @@ describe("EventBus", () => {
     expect(eventHandler2.handle).not.toHaveBeenCalled();
     expect(eventHandler3.handle).not.toHaveBeenCalled();
   });
+
+  it("should allow subscribing the same handler multiple times", () => {
+    eventBus.subscribe(event1, eventHandler1);
+    eventBus.subscribe(event1, eventHandler1);
+    eventBus.publish(event1);
+    expect(eventHandler1.handle).toHaveBeenCalledTimes(2);
+  });
+
+  it("should propagate error if handler throws during handle", () => {
+    const throwingHandler: IEventHandler = { handle: jest.fn(() => { throw new Error("fail"); }) };
+    eventBus.subscribe(event1, throwingHandler);
+    expect(() => eventBus.publish(event1)).toThrow("fail");
+  });
+
+  it("should not throw if event has no constructor name", () => {
+    const event = Object.create(null); // no constructor
+    expect(() => eventBus.publish(event)).not.toThrow();
+  });
 });

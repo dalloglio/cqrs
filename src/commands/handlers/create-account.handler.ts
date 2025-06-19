@@ -1,4 +1,3 @@
-import { randomUUID } from "crypto";
 import { ICommandHandler } from "../../@core/command/interfaces";
 import { Account } from "../../account";
 import { CreateAccountCommand } from "../create-account";
@@ -17,7 +16,7 @@ export class CreateAccountHandler
     const { email, password } = command;
     const account = new Account(email, password);
     return {
-      id: randomUUID(),
+      id: account.id,
       email: account.email,
     };
   }
