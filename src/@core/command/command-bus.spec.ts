@@ -66,4 +66,22 @@ describe("CommandBus", () => {
       `No handler for command ${command1}`
     );
   });
+
+  it("should overwrite handler if registering the same command twice", async () => {
+    commandBus.register(command1, handler1);
+    commandBus.register(command1, handler2);
+    await commandBus.execute(command1);
+    expect(handler2.execute).toHaveBeenCalled();
+    expect(handler1.execute).not.toHaveBeenCalled();
+  });
+
+  it("should not throw when unregistering a non-existent command", () => {
+    expect(() => commandBus.unregister(new MockCommand1())).not.toThrow();
+  });
+
+  it("should propagate error if handler throws during execution", async () => {
+    const errorHandler: ICommandHandler = { execute: jest.fn(() => Promise.reject(new Error("fail"))) };
+    commandBus.register(command1, errorHandler);
+    await expect(commandBus.execute(command1)).rejects.toThrow("fail");
+  });
 });

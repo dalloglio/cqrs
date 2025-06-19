@@ -8,7 +8,9 @@ export class EventBus implements IEventBus {
   }
 
   publish(event: IEvent): void {
-    const handlers = this.events.get(event.constructor.name);
+    const eventName = event && event.constructor && event.constructor.name;
+    if (!eventName) return;
+    const handlers = this.events.get(eventName);
     if (!handlers) return;
     handlers.forEach((handler) => handler.handle(event));
   }
