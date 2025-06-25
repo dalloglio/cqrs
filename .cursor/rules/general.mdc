@@ -1,6 +1,6 @@
 ---
 description: 
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 Before creating new files or folders, please ask and wait for my review. Let's go step by step
