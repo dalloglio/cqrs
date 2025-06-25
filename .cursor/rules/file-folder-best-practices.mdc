@@ -21,6 +21,7 @@ When creating new files and folders in this project, always follow these best pr
 - Run Prettier on all new files before committing: `npx prettier --write <filename>`
 - Ensure all new files pass linting: `npx eslint <filename>`
 - Use the project's Prettier and ESLint configuration files for formatting and linting rules.
+- **All files must end with a blank line.**
 
 ## Imports and Exports
 - Always add necessary imports and exports when creating new modules.
