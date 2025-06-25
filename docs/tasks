@@ -16,8 +16,8 @@ As a system user, I want to retrieve account information using queries so that I
 - All tasks below are completed.
 - [x] Define query interfaces (e.g., GetAccountByIdQuery, ListAccountsQuery)
 - [x] Implement query handler classes
-- [ ] Write unit tests for query handlers
-- [ ] Integrate query handlers with the query bus
+- [x] Write unit tests for query handlers
+- [x] Integrate query handlers with the query bus
 
 ## 2. Event Publishing and Handling
 **User Story:**
