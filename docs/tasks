@@ -14,10 +14,10 @@ As a system user, I want to retrieve account information using queries so that I
 - No breaking changes to existing features.
 - All acceptance criteria are verified by tests or manual review.
 - All tasks below are completed.
-- [ ] Define query interfaces (e.g., GetAccountByIdQuery, ListAccountsQuery)
-- [ ] Implement query handler classes
-- [ ] Write unit tests for query handlers
-- [ ] Integrate query handlers with the query bus
+- [x] Define query interfaces (e.g., GetAccountByIdQuery, ListAccountsQuery)
+- [x] Implement query handler classes
+- [x] Write unit tests for query handlers
+- [x] Integrate query handlers with the query bus
 
 ## 2. Event Publishing and Handling
 **User Story:**

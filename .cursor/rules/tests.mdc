@@ -1,0 +1,6 @@
+---
+description: 
+globs: *.spec.ts
+alwaysApply: false
+---
+When creating tests, use the BDD (Behaviour Driven Development) approach
