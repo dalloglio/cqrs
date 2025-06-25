@@ -1,0 +1,39 @@
+---
+description: When new files or folders are created
+globs: 
+alwaysApply: false
+---
+# Best Practices for Creating New Files and Folders
+
+When creating new files and folders in this project, always follow these best practices to ensure consistency and compliance with linters and Prettier:
+
+## File and Folder Naming
+- Use **kebab-case** for file and folder names (e.g., `my-feature.ts`, `user-profile/`).
+- Avoid spaces, special characters, or uppercase letters in names.
+- Use descriptive names that reflect the file or folder's purpose.
+
+## File Extensions and Placement
+- Use `.ts` for TypeScript source files.
+- Place test files alongside their source files, using the `.spec.ts` suffix (e.g., `my-feature.spec.ts`).
+- Group related files in feature-based or domain-based folders for modularity.
+
+## Formatting and Linting
+- Run Prettier on all new files before committing: `npx prettier --write <filename>`
+- Ensure all new files pass linting: `npx eslint <filename>`
+- Use the project's Prettier and ESLint configuration files for formatting and linting rules.
+
+## Imports and Exports
+- Always add necessary imports and exports when creating new modules.
+- Avoid circular dependencies by keeping modules decoupled.
+
+## Folder Structure
+- Organize code by domain or feature, not by type (e.g., prefer `account/handlers/` over `handlers/account/`).
+- Keep folders small and focused; split large folders when they grow too complex.
+
+## Documentation
+- Update or create relevant documentation in the `docs/` directory when adding significant new features or modules.
+
+## Review and Approval
+- Before creating new files or folders, request a review as per workspace rules.
+
+For more details, refer to the [package.json](mdc:package.json) for scripts and configuration, and the [README.md](mdc:README.md) for project guidelines.
